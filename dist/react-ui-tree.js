@@ -82,10 +82,12 @@ var UITree = function (_Component) {
 UITree.propTypes = {
   tree: _propTypes2.default.object.isRequired,
   paddingLeft: _propTypes2.default.number,
-  renderNode: _propTypes2.default.func.isRequired
+  renderNode: _propTypes2.default.func.isRequired,
+  draggable: _react2.default.PropTypes.bool
 };
 UITree.defaultProps = {
-  paddingLeft: 20
+  paddingLeft: 20,
+  draggable: false
 };
 
 var _initialiseProps = function _initialiseProps() {
@@ -139,6 +141,9 @@ var _initialiseProps = function _initialiseProps() {
   };
 
   this.dragStart = function (id, dom, e) {
+    if (!_this2.props.draggable) {
+      return;
+    }
     _this2.dragging = {
       id: id,
       w: dom.offsetWidth,
