@@ -26,6 +26,18 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+UITree.propTypes = {
+  tree: _propTypes2.default.object.isRequired,
+  paddingLeft: _propTypes2.default.number,
+  renderNode: _propTypes2.default.func.isRequired,
+  draggable: _react2.default.PropTypes.bool
+};
+
+UITree.defaultProps = {
+  paddingLeft: 20,
+  draggable: false
+};
+
 var UITree = function (_Component) {
   _inherits(UITree, _Component);
 
@@ -78,17 +90,6 @@ var UITree = function (_Component) {
 
   return UITree;
 }(_react.Component);
-
-UITree.propTypes = {
-  tree: _propTypes2.default.object.isRequired,
-  paddingLeft: _propTypes2.default.number,
-  renderNode: _propTypes2.default.func.isRequired,
-  draggable: _react2.default.PropTypes.bool
-};
-UITree.defaultProps = {
-  paddingLeft: 20,
-  draggable: false
-};
 
 var _initialiseProps = function _initialiseProps() {
   var _this2 = this;
